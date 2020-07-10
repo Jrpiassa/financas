@@ -15,7 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.springframework.data.convert.Jsr310Converters;
+import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 
 import com.jrpiassa.minhasfinancas.model.enuns.StatusLaunch;
 import com.jrpiassa.minhasfinancas.model.enuns.TypeLaunch;
@@ -50,7 +50,7 @@ public class Launch {
 	private User user;
 
 	@Column(name = "date_register")
-	@Convert(converter = Jsr310Converters.DateToLocalDateConverter.class)
+	@Convert(converter = Jsr310JpaConverters.LocalDateConverter.class)
 	private Date dateRegister;
 
 	@Column(name = "type")

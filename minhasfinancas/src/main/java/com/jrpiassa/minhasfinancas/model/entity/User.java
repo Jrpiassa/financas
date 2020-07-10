@@ -10,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.springframework.data.convert.Jsr310Converters;
+import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 
 import lombok.Builder;
 import lombok.Data;
@@ -35,7 +35,7 @@ public class User {
 	private String password;
 
 	@Column(name = "date_register")
-	@Convert(converter = Jsr310Converters.DateToLocalDateConverter.class)
+	@Convert(converter = Jsr310JpaConverters.LocalDateConverter.class)
 	private LocalDate dateRegister;
 
 }
