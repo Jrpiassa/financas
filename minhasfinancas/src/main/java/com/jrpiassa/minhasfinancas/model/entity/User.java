@@ -12,12 +12,17 @@ import javax.persistence.Table;
 
 import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "user", schema = "financas")
-@Builder@Data
+@Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
 
 	@Id

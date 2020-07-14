@@ -1,7 +1,11 @@
 package com.jrpiassa.minhasfinancas.service.impl;
 
-import org.springframework.stereotype.Service;
+import java.util.Optional;
 
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.jrpiassa.minhasfinancas.exception.AuthenticateException;
 import com.jrpiassa.minhasfinancas.exception.BusinesException;
 import com.jrpiassa.minhasfinancas.model.entity.User;
 import com.jrpiassa.minhasfinancas.model.repository.UserRepository;
@@ -18,14 +22,24 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User authenticate(String email, String password) {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<User> user = userRepository.findByEmail(email);
+		
+		if (!user.isPresent()) {
+			throw new AuthenticateException("Usuario não encontrado com o e-mail informado!");
+		}
+		
+		if(!user.get().getPassword().equals(password)) {
+			throw new AuthenticateException("Usuario não encontrado com a senha informada!");
+		}
+
+		return user.get();
 	}
 
 	@Override
+	@Transactional
 	public User saveUser(User user) {
-		// TODO Auto-generated method stub
-		return null;
+		validateEmail(user.getEmail());
+		return userRepository.save(user);
 	}
 
 	@Override
