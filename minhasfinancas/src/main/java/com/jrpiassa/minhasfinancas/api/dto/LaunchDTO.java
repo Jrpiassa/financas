@@ -2,11 +2,15 @@ package com.jrpiassa.minhasfinancas.api.dto;
 
 import java.math.BigDecimal;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class LaunchDTO {
 	private Long id;
 	private String description;
@@ -14,6 +18,6 @@ public class LaunchDTO {
 	private Integer year;
 	private BigDecimal value;
 	private Long idUser;
-	private String launchType;
-	private String launchStatus;
+	private String typeLaunch;
+	private String statusLaunch;
 }

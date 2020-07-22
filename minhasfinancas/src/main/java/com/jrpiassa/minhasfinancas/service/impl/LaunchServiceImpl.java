@@ -1,5 +1,6 @@
 package com.jrpiassa.minhasfinancas.service.impl;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -14,6 +15,7 @@ import com.jrpiassa.minhasfinancas.business.rule.LaunchRules;
 import com.jrpiassa.minhasfinancas.exception.BusinesException;
 import com.jrpiassa.minhasfinancas.model.entity.Launch;
 import com.jrpiassa.minhasfinancas.model.enuns.StatusLaunch;
+import com.jrpiassa.minhasfinancas.model.enuns.TypeLaunch;
 import com.jrpiassa.minhasfinancas.model.repository.LaunchRepository;
 import com.jrpiassa.minhasfinancas.service.LaunchService;
 
@@ -70,6 +72,20 @@ public class LaunchServiceImpl implements LaunchService {
 	@Override
 	public Optional<Launch> findById(Long id) {		
 		return launchRepository.findById(id);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public BigDecimal getBalanceUser(Long id) {
+		BigDecimal recipe = launchRepository.getBalanceTypeLaunchAndUser(id, TypeLaunch.RECIPE);
+		BigDecimal expense = launchRepository.getBalanceTypeLaunchAndUser(id, TypeLaunch.EXPENSE);
+		
+		if(null == recipe)
+			recipe = BigDecimal.ZERO;
+		if(null == expense)
+			expense = BigDecimal.ZERO;
+		
+		return recipe.subtract(expense);
 	}
 
 }

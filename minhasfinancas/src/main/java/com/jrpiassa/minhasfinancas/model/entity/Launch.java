@@ -20,12 +20,14 @@ import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 import com.jrpiassa.minhasfinancas.model.enuns.StatusLaunch;
 import com.jrpiassa.minhasfinancas.model.enuns.TypeLaunch;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "launch", schema = "financas")
-@Builder@Data
+@Builder@Data@NoArgsConstructor@AllArgsConstructor
 public class Launch {
 
 	@Id
