@@ -1,7 +1,7 @@
 package com.jrpiassa.minhasfinancas.model.entity;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Convert;
@@ -53,7 +53,7 @@ public class Launch {
 
 	@Column(name = "date_register")
 	@Convert(converter = Jsr310JpaConverters.LocalDateConverter.class)
-	private Date dateRegister;
+	private LocalDate dateRegister;
 
 	@Column(name = "type")
 	@Enumerated(value = EnumType.STRING)

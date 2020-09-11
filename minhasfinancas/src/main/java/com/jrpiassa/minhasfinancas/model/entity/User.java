@@ -12,6 +12,8 @@ import javax.persistence.Table;
 
 import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -37,10 +39,12 @@ public class User {
 	private String email;
 
 	@Column(name = "password")
+	@JsonIgnore
 	private String password;
 
 	@Column(name = "date_register")
 	@Convert(converter = Jsr310JpaConverters.LocalDateConverter.class)
+	@JsonIgnore
 	private LocalDate dateRegister;
 
 }
