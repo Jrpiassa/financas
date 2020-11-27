@@ -17,6 +17,7 @@ import javax.persistence.Table;
 
 import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jrpiassa.minhasfinancas.model.enuns.StatusLaunch;
 import com.jrpiassa.minhasfinancas.model.enuns.TypeLaunch;
 
@@ -53,6 +54,7 @@ public class Launch {
 
 	@Column(name = "date_register")
 	@Convert(converter = Jsr310JpaConverters.LocalDateConverter.class)
+	@JsonIgnore
 	private LocalDate dateRegister;
 
 	@Column(name = "type")

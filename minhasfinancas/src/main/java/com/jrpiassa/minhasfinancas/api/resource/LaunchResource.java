@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jrpiassa.minhasfinancas.api.dto.LaunchDTO;
-import com.jrpiassa.minhasfinancas.api.dto.LaunchUpdateStatus;
+import com.jrpiassa.minhasfinancas.api.dto.LaunchUpdateStatusDTO;
 import com.jrpiassa.minhasfinancas.exception.BusinesException;
 import com.jrpiassa.minhasfinancas.model.entity.Launch;
 import com.jrpiassa.minhasfinancas.model.entity.User;
@@ -92,7 +92,7 @@ public class LaunchResource {
 	}
 	
 	@PutMapping("{id}/launch-update-status")
-	public ResponseEntity launchUpdateStatus(@PathVariable("id") Long id , @RequestBody LaunchUpdateStatus launchUpdateStatus) {
+	public ResponseEntity launchUpdateStatus(@PathVariable("id") Long id , @RequestBody LaunchUpdateStatusDTO launchUpdateStatus) {
 		return launchService.findById(id).map(entity ->{
 			StatusLaunch status = StatusLaunch.valueOf(launchUpdateStatus.getStatus());
 			if(null == status)
