@@ -7,24 +7,33 @@ NPM: 6.9.0
 
 No meu ambiente estava instalado o node na versão 8.4.0
 
-Realizar os seguintes passos para atualizar
-sudo apt install wget 
+Para alterar a versão podemos fazer o seguinte:
 
-wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+--1) sudo apt install wget
 
-source ~/.profile
-nvm ls-remote
-nvm install 10.16.3
+--2) wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+
+--3) source ~/.profile
+
+--4) nvm ls-remote
+
+--5) nvm install 10.16.3
+
+--6) node -v
 
 Se você instalou o Node.js com este método mas agora deseja desinstalá-lo, primeiro é preciso desativar a aplicação:
 
 nvm deactivate
-
 Em seguida desinstale o Node.js:
 
-nvm uninstall v10.15.1
+nvm uninstall v10.16.3
+
+
+Fonte:https://www.hostinger.com.br/tutoriais/instalar-node-js-ubuntu/
+
 
 Instalação do yarn
+
 npm install -g yarn
 
 npm install -g create-react-app
