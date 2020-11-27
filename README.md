@@ -17,13 +17,16 @@ nvm ls-remote
 nvm install 10.16.3
 
 Se você instalou o Node.js com este método mas agora deseja desinstalá-lo, primeiro é preciso desativar a aplicação:
+
 nvm deactivate
 
 Em seguida desinstale o Node.js:
+
 nvm uninstall v10.15.1
 
 Instalação do yarn
 npm install -g yarn
+
 npm install -g create-react-app
 
 
