@@ -8,8 +8,8 @@ NPM: 6.9.0
 No meu ambiente estava instalado o node na versão 8.4.0
 
 Realizar os seguintes passos para atualizar
-sudo apt install wget
-wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+sudo apt install wget 
+
 source ~/.profile
 nvm ls-remote
 nvm install 10.16.3
